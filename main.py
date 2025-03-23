@@ -58,6 +58,17 @@ def most_expensive_product():
         if float(product["price"]) == max_price:
             print(f" - {product['name']}, cena: {product['price']}$")
 
+def cheapest_product():
+    min_price = float("inf")
+    for product in products:
+        if float(product["price"]) < min_price:
+            min_price = float(product["price"])
+
+    print("\nNejlevnější položka/y")
+    for product in products:
+        if float(product["price"]) == min_price:
+            print(f" - {product['name']}, cena: {product['price']}$")
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -65,6 +76,8 @@ def menu():
     print("2. Vyhledání položk/y")
     print("3. Celková cena všech položek")
     print("4. Nejdražší položka")
+    print("5. Nejlevnější položka")
+    print("4. Přidat položku")
 
 
     choice = int(input("Volba: "))
@@ -87,6 +100,14 @@ def menu():
 
     elif choice == 4:
         most_expensive_product()
+        print("")
+        menu()
+    elif choice == 5:
+        cheapest_product()
+        print("")
+        menu()
+    elif choice == 6:
+        add_product()
         print("")
         menu()
 
