@@ -33,21 +33,26 @@ def search_product():
         if search_term in product['name'].lower():
             matches.append(product)
     if len(matches) == 0:
-        print("\nNebyl nalzen žádná odpovídající produkt.\n")
+        print("\nNebyl nalzen žádná odpovídající položka.\n")
         return
 
-    print("\nNalezené produkty:")
+    print("\nNalezené položky:")
     for product in matches:
         print(f" - {product['name']}, cena: {product['price']}$")
     print()
 
+def total_price():
+    total = 0
+    for product in products:
+        total += product['price']
+    print(f"\nCelková cena všech položek: {total}$")
 
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
     print("1. Výpis položek")
     print("2. Vyhledání položk/y")
-    print("3. Přidání položky")
+    print("3. Celková cena všech položek")
     print("2. Přidání položky")
 
 
@@ -61,6 +66,11 @@ def menu():
 
     elif choice == 2:
         search_product()
+        print("")
+        menu()
+
+    elif choice == 3:
+        total_price()
         print("")
         menu()
 
