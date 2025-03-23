@@ -44,7 +44,7 @@ def search_product():
 def total_price():
     total = 0
     for product in products:
-        total += product['price']
+        total += int(product['price'])
     print(f"\nCelková cena všech položek: {total}$")
 
 def most_expensive_product():
