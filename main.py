@@ -77,7 +77,7 @@ def menu():
     print("3. Celková cena všech položek")
     print("4. Nejdražší položka")
     print("5. Nejlevnější položka")
-    print("4. Přidat položku")
+    print("6. Přidat položku")
 
 
     choice = int(input("Volba: "))
