@@ -69,6 +69,14 @@ def cheapest_product():
         if float(product["price"]) == min_price:
             print(f" - {product['name']}, cena: {product['price']}$")
 
+def average_price():
+    total = 0
+    for product in products:
+        total += int(product["price"])
+
+    average = total / len(products)
+    print(f"Průměrná cena:{average}$")
+
 def menu():
     print("Vítej ve skladu")
     print("###############\n")
@@ -77,7 +85,8 @@ def menu():
     print("3. Celková cena všech položek")
     print("4. Nejdražší položka")
     print("5. Nejlevnější položka")
-    print("6. Přidat položku")
+    print("6. Průměrná cena")
+    print("7. Přidat položku")
 
 
     choice = int(input("Volba: "))
@@ -107,6 +116,10 @@ def menu():
         print("")
         menu()
     elif choice == 6:
+        average_price()
+        print("")
+        menu()
+    elif choice == 7:
         add_product()
         print("")
         menu()
